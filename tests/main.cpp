@@ -3,7 +3,7 @@
 #include "Cosa/RTT.hh"
 #include "SDC2160S.h"
 
-wlp::SDC2160S sdc_a(Board::PWM0);
+wlp::SDC2160S sdc(Board::PWM0);
 
 
 void setup() {
@@ -13,12 +13,6 @@ void setup() {
 }
 
 void loop() {
-	sdc_a.set_speed( 20 );
+	sdc( -1 );
 	delay(1000);
-	sdc_a.set_speed( 40 );
-	delay(1000);
-	sdc_a.set_speed( 60 );
-	delay(1000);
-	sdc_a.set_speed( 80 );
-	delay(1000);	
 }

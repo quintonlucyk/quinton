@@ -7,9 +7,7 @@ SDC2160S::SDC2160S(Board::PWMPin PWM_pin)
     : m_PWM_pin(PWM_pin) {}
 
 void SDC2160S::set_speed(const double speed) {
-	// not processing speed < 0
-	
-    //uint16_t reading = m_analog_pin.sample();
+	// not processing speed < 0 or > 100
     
 	int scaled_speed = 0;
 	
@@ -26,18 +24,4 @@ void SDC2160S::set_speed(const double speed) {
 	
 	uint8_t PWM_write = static_cast<uint8_t>(scaled_speed);
     m_PWM_pin.write(PWM_write);
-	trace << "Speed input: " << speed << endl;
-	trace << "Speed output: " << PWM_write << endl << endl;
 }
-
-/*	Check if SDC2160S has powerup/down
-
-void TMP36::begin() {
-    m_analog_pin.powerup();
-}
-
-void TMP36::sleep() {
-    m_analog_pin.powerdown();
-}
-
-*/
