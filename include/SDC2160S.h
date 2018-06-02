@@ -7,7 +7,7 @@ namespace wlp {
 
     class SDC2160S {
     public:
-        explicit SDC2160S(Board::PWMPin PWM_pin);
+        explicit SDC2160S(Board::PWMPin pwm_pin);
 
         void set_speed(const double speed);
 

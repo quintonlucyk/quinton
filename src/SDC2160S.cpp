@@ -6,8 +6,8 @@
 
 using namespace wlp;
 
-SDC2160S::SDC2160S(Board::PWMPin PWM_pin)
-    : m_pwm_pin(PWM_pin) {}
+SDC2160S::SDC2160S(Board::PWMPin pwm_pin)
+    : m_pwm_pin(pwm_pin) {}
 
 void SDC2160S::set_speed(const double speed) {
 	// not processing speed < 0 or > 100
