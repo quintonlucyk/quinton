@@ -9,7 +9,7 @@ using namespace wlp;
 SDC2160S::SDC2160S(Board::PWMPin pwm_pin)
     : m_pwm_pin(pwm_pin) {}
 
-void SDC2160S::set_speed(const double speed) {
+void SDC2160S::set_speed(const int speed) {
 	// not processing speed < 0 or > 100
     
 	int scaled_speed = 0;
@@ -23,6 +23,9 @@ void SDC2160S::set_speed(const double speed) {
 	else if (50 < speed && speed <= 100)//need to map speeds 51-100 to 191-253 for scaled_speed
 		scaled_speed = ((speed-51)*SCALE_2) + 191;
 	
-	uint8_t pwm_write = static_cast<uint8_t>(scaled_speed);
-    m_pwm_pin.write(pwm_write);
+    m_pwm_pin.set(scaled_speed);
+}
+
+void SDC2160S::begin() {
+	m_pwm_pin.begin();
 }
