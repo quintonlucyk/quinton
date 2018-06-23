@@ -2,7 +2,7 @@
 #include "Cosa/UART.hh"
 #include "SDC2160S.h"
 
-wlp::SDC2160S sdc(Board::PWM0);//D3
+wlp::SDC2160S sdc(Board::PWM1);//D3
 
 void setup()
 {
